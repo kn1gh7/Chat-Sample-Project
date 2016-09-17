@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chat Project</string>
+    <string name="no_internet_msg">No Internet Available</string>
+    <string name="loading_failed_msg">Unable to fetch data. Request Failed</string>
+    <string-array name="tab_categories">
+        <item>Users</item>
+        <item>Conversation Counts</item>
+    </string-array>
+</resources>
