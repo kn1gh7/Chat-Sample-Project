@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:tabGravity="fill"
-            app:tabMode="scrollable"
+            app:tabMode="fixed"
             android:visibility="gone"/>
     </android.support.design.widget.AppBarLayout>
 
