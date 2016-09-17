@@ -78,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void setInsertSuccessful() {
         initAdapter();
+
+        progressBar.setVisibility(View.GONE);
+        conversationPager.setVisibility(View.VISIBLE);
+        conversationTabsLayout.setVisibility(View.VISIBLE);
     }
 
     public void showResult(List<UserModelCount> usersList) {
