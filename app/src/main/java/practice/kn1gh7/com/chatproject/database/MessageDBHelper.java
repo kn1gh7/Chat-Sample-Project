@@ -92,6 +92,40 @@ public class MessageDBHelper {
         return rowId > 0;
     }
 
+    public String getLastMessageByUser(String userId) {
+        String lastMessage = null;
+        if (userId == null)
+            return null;
+
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("SELECT " + Messages.MESSAGES_BODY +
+                    " FROM  " + Messages.MESSAGES_TABLE + " as t1 " +
+                    " WHERE " +
+                    " t1." + Messages.MESSAGES_USERID + " = " + userId +
+                    " AND " +
+                    " NOT EXISTS ( " +
+                    "    SELECT *" +
+                    "    FROM   " + Messages.MESSAGES_TABLE + " as t2 " +
+                    "    WHERE " +
+                    "    t2." + Messages.MESSAGES_USERID + " = " + userId +
+                    "    AND t1." + Messages.MESSAGES_MSG_TIME +  " < t2." + Messages.MESSAGES_MSG_TIME +
+                    ")", null);
+
+            if (!cursor.isAfterLast()) {
+                while (cursor.moveToNext()) {
+                    lastMessage = cursor.getString(cursor.getColumnIndex(Messages.MESSAGES_BODY));
+                }
+            }
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return lastMessage;
+    }
+
     public List<UserModelCount> getUniqueUsers() {
         List<UserModelCount> uniqueUsers = null;
         Cursor cursor = null;
@@ -157,6 +191,9 @@ public class MessageDBHelper {
 
                 userModel.setFavoriteCount(String.valueOf(reqCount[0]));
                 userModel.setConversationCount(String.valueOf(reqCount[1]));
+
+                String lastMsg = getLastMessageByUser(userModel.getUserId());
+                userModel.setLastMsg(lastMsg);
             }
         } finally {
             if (cursor != null && !cursor.isClosed())

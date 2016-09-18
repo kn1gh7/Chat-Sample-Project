@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -115,5 +116,11 @@ public class MessagesActivity extends AppCompatActivity {
 
     public void showSnackbar(String msg) {
         Snackbar.make(messagesRV, msg, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void finishAfterTransition() {
+        messagesRV.setVisibility(View.GONE);
+        super.finishAfterTransition();
     }
 }

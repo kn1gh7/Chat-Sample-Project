@@ -17,6 +17,7 @@ import practice.kn1gh7.com.chatproject.R;
 import practice.kn1gh7.com.chatproject.model.UserModelCount;
 import practice.kn1gh7.com.chatproject.presenter.TabsPresenterImpl;
 import practice.kn1gh7.com.chatproject.presenter.UsersCountPresenterImpl;
+import practice.kn1gh7.com.chatproject.view.adapter.CountAdapter;
 import practice.kn1gh7.com.chatproject.view.adapter.UsersAdapter;
 
 /**
@@ -67,7 +68,7 @@ public class ConversationFragment extends Fragment implements UsersCountPresente
         if (fragmentType.equals(FRAGMENT_TYPE_USER)) {
             rv.setAdapter(new UsersAdapter(this.getActivity(), userModelList));
         } else if (fragmentType.equals(FRAGMENT_TYPE_COUNT)) {
-            rv.setAdapter(new UsersAdapter(this.getActivity(), userModelList));
+            rv.setAdapter(new CountAdapter(this.getActivity(), userModelList));
         } else {
             throw new RuntimeException("Unsupported Fragment Type");
         }

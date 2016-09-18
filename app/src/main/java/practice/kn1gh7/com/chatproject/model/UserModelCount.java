@@ -10,6 +10,15 @@ public class UserModelCount {
     public String imgUrl;
     public String favoriteCount;
     public String conversationCount;
+    public String lastMsg;
+
+    public String getLastMsg() {
+        return lastMsg;
+    }
+
+    public void setLastMsg(String lastMsg) {
+        this.lastMsg = lastMsg;
+    }
 
     public String getUserId() {
         return userId;

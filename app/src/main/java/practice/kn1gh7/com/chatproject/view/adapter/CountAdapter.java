@@ -23,40 +23,41 @@ import practice.kn1gh7.com.chatproject.model.UserModelCount;
 /**
  * Created by kn1gh7 on 17/9/16.
  */
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHolder> {
+public class CountAdapter extends RecyclerView.Adapter<CountAdapter.CountViewHolder> {
     Activity activity;
     List<UserModelCount> userModelCountList;
 
-    public UsersAdapter(Activity activity, List<UserModelCount> list) {
+    public CountAdapter(Activity activity, List<UserModelCount> list) {
         this.activity = activity;
         this.userModelCountList = list;
     }
 
     @Override
-    public UsersAdapter.UsersViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.userlastmsg_item, parent, false);
-        return new UsersViewHolder(view);
+    public CountViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.usercount_item, parent, false);
+        return new CountViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(UsersAdapter.UsersViewHolder holder, int position) {
+    public void onBindViewHolder(CountViewHolder holder, int position) {
         final UserModelCount user = userModelCountList.get(position);
         holder.userSName.setText(user.getsName());
-        holder.lastMsg.setText(user.getLastMsg());
+        holder.favoriteCount.setText("Favorite Count: " + user.favoriteCount);
+        holder.totalCount.setText("Total Count: " + user.conversationCount);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = MessagesActivity.newInstance(activity, user.getUserId());
                 ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
                 ActivityCompat.startActivity(activity, intent, activityOptions.toBundle());
             }
-        });
+        });*/
 
         if (user.getImgUrl().length() > 0)
             Glide.with(activity)
-                .load(user.getImgUrl())
-                .into(holder.imgView);
+                    .load(user.getImgUrl())
+                    .into(holder.imgView);
     }
 
     @Override
@@ -64,13 +65,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
         return this.userModelCountList.size();
     }
 
-    public class UsersViewHolder extends RecyclerView.ViewHolder {
-        public TextView userSName, lastMsg;
+    public class CountViewHolder extends RecyclerView.ViewHolder {
+        public TextView userSName, favoriteCount, totalCount;
         public ImageView imgView;
-        public UsersViewHolder(final View itemView) {
+        public CountViewHolder(final View itemView) {
             super(itemView);
             userSName = (TextView) itemView.findViewById(R.id.user_sname);
-            lastMsg = (TextView) itemView.findViewById(R.id.last_msg);
+            favoriteCount = (TextView) itemView.findViewById(R.id.favorite_count);
+            totalCount = (TextView) itemView.findViewById(R.id.total_count);
             imgView = (ImageView) itemView.findViewById(R.id.user_img);
         }
     }
