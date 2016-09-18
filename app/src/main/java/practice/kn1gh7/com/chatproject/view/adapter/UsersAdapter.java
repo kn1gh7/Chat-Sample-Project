@@ -53,10 +53,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
             }
         });
 
-        if (user.getImgUrl().length() > 0)
+        if (user.getImgUrl().length() > 0) {
             Glide.with(activity)
-                .load(user.getImgUrl())
-                .into(holder.imgView);
+                    .load(user.getImgUrl())
+                    .into(holder.imgView);
+        } else {
+            holder.imgView.setImageBitmap(null);
+        }
     }
 
     @Override
