@@ -5,8 +5,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#69F0AE</color>
 
-    <color name="colorRippleSelected">#9FA8DA</color>
-    <color name="colorSelected">#3F51B5</color>
-    <color name="colorRippleUnselected">#EEEEEE</color>
-    <color name="colorUnselected">#9E9E9E</color>
+    <color name="colorRippleSelected">#3F51B5</color>
+    <color name="colorSelected">#9FA8DA</color>
+    <color name="colorRippleUnselected">#9E9E9E</color>
+    <color name="colorUnselected">#EEEEEE</color>
 </resources>

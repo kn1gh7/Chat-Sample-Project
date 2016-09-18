@@ -2,6 +2,7 @@
     <string name="app_name">Chat Project</string>
     <string name="no_internet_msg">No Internet Available</string>
     <string name="loading_failed_msg">Unable to fetch data. Request Failed</string>
+    <string name="long_press_msg">Long Press to favorite a msg</string>
     <string-array name="tab_categories">
         <item>Users</item>
         <item>Conversation Counts</item>

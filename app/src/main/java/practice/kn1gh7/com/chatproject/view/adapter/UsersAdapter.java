@@ -2,6 +2,8 @@ package practice.kn1gh7.com.chatproject.view.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +49,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
             @Override
             public void onClick(View view) {
                 Intent intent = MessagesActivity.newInstance(activity, user.getUserId());
-                activity.startActivity(intent);
+                ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
+                ActivityCompat.startActivity(activity, intent, activityOptions.toBundle());
             }
         });
 
