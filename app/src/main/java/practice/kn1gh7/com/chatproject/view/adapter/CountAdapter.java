@@ -45,14 +45,14 @@ public class CountAdapter extends RecyclerView.Adapter<CountAdapter.CountViewHol
         holder.favoriteCount.setText("Favorite Count: " + user.favoriteCount);
         holder.totalCount.setText("Total Count: " + user.conversationCount);
 
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = MessagesActivity.newInstance(activity, user.getUserId());
                 ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
                 ActivityCompat.startActivity(activity, intent, activityOptions.toBundle());
             }
-        });*/
+        });
 
         if (user.getImgUrl().length() > 0)
             Glide.with(activity)

@@ -1,13 +1,12 @@
-<android.support.v7.widget.CardView
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="5dp"
-    android:padding="10dp"
-    android:layout_margin="5dp"
-    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_margin="@dimen/card_margin"
     android:clickable="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:foreground="?android:attr/selectableItemBackground"
+    android:padding="@dimen/card_padding"
+    app:cardCornerRadius="@dimen/card_corner_radius">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -15,25 +14,30 @@
 
         <ImageView
             android:id="@+id/user_img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
             android:layout_gravity="center_vertical"
-            android:padding="5dp"/>
+            android:padding="@dimen/img_padding" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center_vertical"
-            android:layout_toRightOf="@id/user_img">
+            android:layout_toRightOf="@id/user_img"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/user_sname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/top_txt_size"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/last_msg"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/subtext_size" />
 
         </LinearLayout>
     </LinearLayout>
