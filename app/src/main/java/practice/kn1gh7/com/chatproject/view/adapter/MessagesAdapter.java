@@ -71,9 +71,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         });
 
         if (model.getIsFavorite().equals("1")) {
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(activity.get(), R.color.red));
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(activity.get(), R.color.colorSelected));
         } else {
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(activity.get(), R.color.grey));
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(activity.get(), R.color.colorUnselected));
         }
     }
 

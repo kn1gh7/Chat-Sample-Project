@@ -8,13 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/scrollable_category_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:tabGravity="center"
-            app:tabMode="scrollable" />
+        <include
+            layout="@layout/toolbar_layout" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"

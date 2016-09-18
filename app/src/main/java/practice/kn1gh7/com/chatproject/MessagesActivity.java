@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -51,6 +53,10 @@ public class MessagesActivity extends AppCompatActivity {
     private void initViews() {
         messagesRV = (RecyclerView) findViewById(R.id.messages_rv);
         messagesRV.setLayoutManager(new LinearLayoutManager(this));
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initOthers() {
@@ -90,5 +96,14 @@ public class MessagesActivity extends AppCompatActivity {
             logHelper.showLog("msgId: " + msgId + " newFavStatus: " + newFavStatus + " successStatus: " + successfulUpdate);
             msgsAdapter.notifyItemChanged(msgsAdapter.getItemPosition(msgId));
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
