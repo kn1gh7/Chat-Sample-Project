@@ -54,10 +54,13 @@ public class CountAdapter extends RecyclerView.Adapter<CountAdapter.CountViewHol
             }
         });
 
-        if (user.getImgUrl().length() > 0)
+        if (user.getImgUrl().length() > 0) {
             Glide.with(activity)
                     .load(user.getImgUrl())
                     .into(holder.imgView);
+        } else {
+            holder.imgView.setImageBitmap(null);
+        }
     }
 
     @Override
